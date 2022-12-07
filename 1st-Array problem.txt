@@ -1,0 +1,35 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array1 = { 2, 14, 18, 22, 22 };
+            int count = 0;
+            if (array1.Length % 2 == 0)
+            {
+                for (var i = 0; i < array1.Length; i++)
+                {
+                    for (var j = i + 1; j < array1.Length; j++)
+                    {
+                        if (array1[i] == array1[j])
+                        {
+                            count = count + 1; 
+                        }
+                    }
+                }
+            }
+            if (count >= 1)
+            {
+                Console.WriteLine("it is true");
+            }
+            else
+            {
+                Console.WriteLine("false");
+            }
+            
+        }
+    }
+}
