@@ -33,3 +33,39 @@ namespace ConsoleApp1
         }
     }
 }
+
+Due to error "time limit exceeded" we are not using this answer...
+
+
+
+
+correct answer :-
+
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            HashSet<int> Hashnumbers = new HashSet<int>();
+            int[] array1 = { 1, 2, 3, 4 };
+            foreach (var n in array1)
+            {
+                if (Hashnumbers.Contains(n))
+                {
+                    Console.WriteLine("True");
+                }
+                Hashnumbers.Add(n);
+                Console.WriteLine("false");
+            }
+        }
+    }
+}
+
+
+
+
+
