@@ -1,0 +1,106 @@
+ACCEPTED own code:-
+
+public class Solution {
+    public bool IsAnagram(string s, string t) {
+           string startword = s;
+            string tailword = t;
+            HashSet<char> hastset = new HashSet<char>();
+            Dictionary<char, int> dict1 = new Dictionary<char, int>();
+            Dictionary<char, int> dict2 = new Dictionary<char, int>();
+            if (startword.Length == tailword.Length)
+            {
+                foreach (var i in startword)
+                {
+                    hastset.Add(i);
+                }
+                foreach (var j in hastset)
+                {
+                    int count = 0;
+                    int count1 = 0;
+                    for (var k = 0; k < startword.Length; k++)
+                    {
+                        if (j == startword[k])
+                        {
+                            count = count + 1;
+                        }
+                        if (j == tailword[k])
+                        {
+                            count1 = count1 + 1;
+                        }
+
+                    }
+                    dict1.Add(j, count);
+                    dict2.Add(j, count1);
+                }
+                foreach (var c in dict1.Keys)
+                {
+                    int dictcount = dict2.ContainsKey(c) ? dict2[c] : 0;
+                    if (dict1[c] != dictcount)
+                    {
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+            return false;
+    }
+}
+
+
+
+
+Accepted:-
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string startword = "anagram";
+            string tailword = "nagaram";
+
+            
+            int[] array1 = new int[26];
+            int[] array2 = new int[26];
+
+            if (startword.Length != tailword.Length)
+            {
+                return false;
+            }
+
+            foreach (var i in startword)
+            {
+                
+                int indexi = (int)i - 97;
+                array1[indexi] = array1[indexi] + 1; 
+            }
+
+            foreach (var j in tailword)
+            {
+
+                int indexi = (int)j - 97;
+                array2[indexi] = array2[indexi] + 1;
+            }
+
+            //Console.WriteLine(array1.Length);
+
+            for (var i = 1; i < array1.Length; i++)
+            {
+                if (array1[i] != array2[i])
+                {
+                    Console.WriteLine("false");
+                    return;
+                }
+            }
+            Console.WriteLine("True");
+
+        }
+    }
+}
