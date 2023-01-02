@@ -1,0 +1,25 @@
+Accepted-own-code
+
+
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        int[] resul1t = new int[2];
+        for(var i= 0; i < nums.Length; i++)
+            {
+                for (var j=i+1;j<nums.Length;j++)
+                {
+                    if ((nums[i] + nums[j]) == target)
+                    {
+                        resul1t[0] = i;
+                        resul1t[1] = j;
+                        break;
+                    }
+                    
+                }
+            }
+        return resul1t;    
+    }
+}
+
+
+
