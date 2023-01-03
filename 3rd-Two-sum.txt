@@ -23,3 +23,25 @@ public class Solution {
 
 
 
+Partialy accepted
+
+int result;
+            int[] resul1t = new int[2];
+            Dictionary<int, int> dict1 = new Dictionary<int, int>();
+
+            for(var i=0;i<nums.Length;i++)
+            {
+                
+                result = target - nums[i];
+                if (dict1.ContainsKey(result))
+                {
+                    resul1t[0] = dict1[result];
+                    resul1t[1] = i;
+                }
+                else
+                {
+                    dict1.Add(nums[i], i);
+                }
+            }
+
+
