@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
+            List<Dictionary<string, string>> list1 = new List<Dictionary<string, string>>();
+            int result;
+            for (var i= 0;i < strs.Length;i++)
+            {
+                for (var j = 0; j < strs[i].Length; j++)
+                {
+                    Console.WriteLine(strs[i][j]);
+                    result = (int)strs[i][j] - 97;
+                    list1[i].Add((strs[i][j]).ToString(),result.ToString());
+                }
+                foreach (var q in list1)
+                {
+                    for (var k = 0; k < q.Count; k++)
+                    {
+                        
+                    }
+                }
+
+            }
+
+
+        }
+    }
+}
