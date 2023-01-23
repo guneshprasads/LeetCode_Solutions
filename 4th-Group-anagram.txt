@@ -35,3 +35,56 @@ namespace ConsoleApp1
         }
     }
 }
+
+
+Accepted:-
+
+public class Solution {
+    public IList<IList<string>> GroupAnagrams(string[] strs) {
+            IList<IList<string>> list4 = new List<IList<string>>();
+            
+            if(strs.Length > 1)
+            {
+                HashSet<string> hash1 = new HashSet<string>();
+
+            foreach(var o in strs)
+            {
+                hash1.Add(o);
+            }
+                var dict = new Dictionary<string, string>();
+                var list3 = new List<string>();
+
+                
+                foreach (var i in hash1)
+                {
+                    var list1 = new List<string>();
+                    string list2;
+                    foreach (var j in i.ToCharArray())
+                    {
+                        list1.Add(j.ToString());
+                    }
+                    list1.Sort();
+                    list2 = String.Join("", list1);
+                    dict.Add(i, list2);
+                }
+
+                foreach (var s in dict)
+                {
+                    IList<string> list5 = new List<string>();
+                    foreach (var f in dict)
+                    {
+                        if (s.Value == f.Value)
+                        {
+                            list5.Add(f.Key);
+                            dict.Remove(f.Key);
+                        }
+                    }
+                    list4.Add(list5);
+                }
+
+                return list4;
+            }
+            list4.Add(strs.ToList());
+            return list4;
+    }
+}
