@@ -104,3 +104,43 @@ namespace ConsoleApp1
         }
     }
 }
+
+
+
+
+Java Solution :-
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        String startword = s;
+        String tailword = t;
+        int[] a1 = new int[26];
+        int[] b = new int[26];
+        char[] ch=startword.toCharArray();
+        char[] th=tailword.toCharArray();
+
+        if (startword.length() != startword.length())
+            {
+                return false;
+            }
+        for (var i:ch) 
+            {
+            int index = (int)i -97;
+            a1[index] = a1[index]+1;
+            }     
+
+        for (var i:th) {
+            int index = (int)i -97;
+            b[index] = b[index]+1;
+        }
+
+        for (var i = 0;i<a1.length;i++)
+        {
+            if (a1[i]!=b[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}

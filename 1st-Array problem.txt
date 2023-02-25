@@ -66,6 +66,27 @@ namespace ConsoleApp1
 }
 
 
+Java Solution:-
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> hashSet = new HashSet<Integer>();
+        for (var i:nums) {
+            if(hashSet.contains(i))
+            {
+                return true;
+            }
+            else
+            {
+                hashSet.add(i);
+            }
+        }
+        System.out.println(hashSet);
+        return false;
+    }
+}
+
+
 
 
 
