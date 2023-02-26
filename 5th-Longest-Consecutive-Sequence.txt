@@ -1,0 +1,80 @@
+Java Programming :-
+
+class Solution {
+    public int longestConsecutive(int[] num) {
+        
+        int output = 1;
+        List<Integer> result = new ArrayList<Integer>();
+        HashSet<Integer> hash1 = new HashSet<Integer>();
+        if(num.length == 0) return 0;
+
+        for (var g:num) 
+        {
+            hash1.add(g);
+        }
+        int[] nums = new int[hash1.size()];
+        int len = nums.length;
+        int count = nums.length - 1;
+
+        int o=0;
+        for (var ele:hash1) 
+        {
+            nums[o] = ele;
+            o++;
+        }
+
+        for (var i=0;i<len;i++)
+        {
+            int small = nums[0];
+
+            for (var j=0 ;j<nums.length;j++)
+            {
+                if(small > nums[j])
+                {
+                    small = nums[j];
+
+                }
+            }
+            result.add(small);
+
+            int[] nums1 = new int[count];
+            for (int k=0,n=0;k<nums.length;k++)
+            {
+                if(nums[k]!=small)
+                {
+                    nums1[n]=nums[k];
+                    n++;
+                }
+            }
+            nums=nums1;
+            count--;
+        }
+        
+        int resout = 0;        
+        for (var m=0;m<result.size()-1;m++)
+        {
+            if(result.get(m)+1== result.get(m+1))
+            {
+                output ++;
+            }
+            else 
+            {
+                if(output>resout)
+                {
+                    resout = output;
+                    System.out.println("resout"+resout);
+                }
+                output = 1;
+            }
+        }
+        if(resout > output)
+        {
+            return resout;
+        }
+        else 
+        {
+            return output;
+        }
+    
+    }
+}
