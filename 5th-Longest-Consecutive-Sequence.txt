@@ -78,3 +78,27 @@ class Solution {
     
     }
 }
+
+
+
+
+Accepted Solution:-
+
+int output = 1;
+        HashSet<Integer> hash1 = new HashSet<Integer>();
+
+        if(num.length == 0) return 0;
+        for (var nums:num) hash1.add(nums);
+        for (var nums:num) {
+            if(!hash1.contains(nums-1))
+            {
+                int count = 1;
+                while (hash1.contains(nums + 1))
+                {
+                    nums++;
+                    count++;
+                }
+                output = Math.max(count,output);
+            }
+        }
+        return output;
