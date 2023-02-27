@@ -1,0 +1,27 @@
+Java Solution:-
+
+public class Main {
+    public static void main(String[] args)
+    {
+        int[] num = {0,0,0};
+        int[] ResultArray = new int[num.length];
+        if (num.length == 0) System.out.println("0");
+        for (var i=0;i<num.length;i++)
+        {
+            List<Integer> array1 = new ArrayList<Integer>(num.length);
+            for (var g:num) {
+                array1.add(g);
+            }
+            array1.remove(i);
+            int answer = 1;
+            for (var j:array1)
+            {
+                answer = answer * j;
+            }
+            ResultArray[i] = answer;
+        }
+        for (var o:ResultArray) {
+            System.out.println(o);
+        }
+    }
+}
