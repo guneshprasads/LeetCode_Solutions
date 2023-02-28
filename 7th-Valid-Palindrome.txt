@@ -1,0 +1,39 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        String str = s.toLowerCase();
+        List<Character> listchar = new ArrayList<>();
+        List<Character> listint = new ArrayList<>();
+        char ch;
+        String reverse = "";
+        if(str.length() == 0) return true;
+        for (var i:str.toCharArray()) {
+            listchar.add(i);
+        }
+        System.out.println(listchar);
+        for (var j:listchar) {
+           int num = (int)j;
+           if((num>=97 & num<=122)  || (num>=48 & num<=57))
+           {
+               char c = (char)num;
+               listint.add(c);
+           }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (var g:listint) {
+            sb.append(g);
+        }
+        String srt = sb.toString();
+        System.out.println(srt);
+        for (int k =0 ;k<srt.length();k++)
+        {
+            ch = srt.charAt(k);
+            reverse = ch + reverse;
+        }
+
+        if (srt.equals(reverse))
+        {
+            return true;
+        }
+        return false;
+    }
+}
