@@ -67,3 +67,33 @@ class Solution {
     }
 }
 
+
+
+
+Java Solution:- not o(n^2) less than o(n^2)
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Stack<Integer> stack= new Stack<>();
+        int[] result = new int[2];
+        for (var i = 0;i<nums.length;i++)
+        {
+            int count = 0;
+
+            if (!stack.isEmpty())
+            {
+
+                while (count < stack.size()) {
+                    if (nums[i] + stack.get(count) == target) {
+                        result[0] = i;
+                        result[1] = count;
+                    }
+                    count++;
+                }
+            }
+            stack.add(nums[i]);
+        }
+        return result;
+    }
+}
+
